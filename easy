@@ -1,0 +1,11 @@
+-- Put this script inside a ServerScriptService
+
+game.Players.PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(function(character)
+        local humanoid = character:WaitForChild("Humanoid")
+        
+        humanoid.Jumping:Connect(function()
+            player:Kick("You have been kicked for jumping!")
+        end)
+    end)
+end)
